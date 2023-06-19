@@ -7,14 +7,14 @@ describe("POST /", () => {
   it("Quick test", () => {
     expect(1).toBe(1);
   });
-  it("City not found", async () => {
+  it("Should return 404 when city is not found", async () => {
     const response = await request
       .post("/")
-      .send({ cityName: "city does not city" });
+      .send({ cityName: "The city does not city" });
     expect(response.status).toBe(200);
     expect(response.body.weatherText).toBe("City not found");
   });
-  it("City found", async () => {
+  it("Should return 404 when city is not found", async () => {
     const response = await request.post("/").send({ cityName: "Paris" });
     expect(response.status).toBe(200);
     expect(response.body.weatherText);
